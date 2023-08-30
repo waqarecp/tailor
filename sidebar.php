@@ -18,14 +18,14 @@
   </li><!-- End customer Page Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="customer.php">
+    <a class="nav-link collapsed" href="orders.php">
       <i class="bi bi-book"></i>
       <span>Orders</span>
     </a>
   </li><!-- End Orders Page Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="customer.php">
+    <a class="nav-link collapsed" href="settings.php">
       <i class="bi bi-gear"></i>
       <span>Settings</span>
     </a>
