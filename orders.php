@@ -5,6 +5,8 @@
 ?>
 <?php include'sidebar.php';
 ?>
+
+
 <main id="main" class="main">
 
 <div class="pagetitle">
@@ -12,7 +14,7 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-      <li class="breadcrumb-item">Orders</li>
+      <li class="breadcrumb-item active">Orders</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->

@@ -14,7 +14,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item active">Customer</li>
+          <li class="breadcrumb-item active" >Customer</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -58,7 +58,7 @@
 
     <button type="button" class="btn btn-sm btn-primary text-white" data-bs-toggle="modal" data-bs-target="#editModal">
   <span class="bi bi-pencil"></span>
-    </button> 
+    </button>  
                     </td>
                   </tr>
                   <?php } ?>
@@ -436,5 +436,6 @@ else{
                 </div>
               </div><!-- End Large Modal-->
 
+  <!-- Medium Modal -->
 
-
+            
