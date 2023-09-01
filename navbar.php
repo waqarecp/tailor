@@ -99,26 +99,11 @@
                      
                     <div class="modal-body">
                       <!-- Multi Columns Form -->
-<<<<<<< HEAD
+
               <form class="row g-3" method="POST" action="ajax.php">
                 
-              
-                <div class="col-md-3">
-                  <label for="inputName5" class="form-label">نام</label>
-                  <input type="text" class="form-control" id="name" name="name">
-                </div>
-                <div class="col-md-3">
-                  <label for="inputEmail5" class="form-label">ایمیل</label>
-                  <input type="email" class="form-control" id="email" name="email">
-                </div>
-                <div class="col-md-3">
-                  <label for="inputPassword5" class="form-label">فون</label>
-                  <input type="number" class="form-control" id="contact" name="contact">
-                </div>
-                <div class="col-3">
-                  <label for="inputAddress5" class="form-label">پتہ</label>
-                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
-=======
+
+
               <form class="row g-3">
               <div class="col-md-4">
                   <label for="customer_name" class="form-label">Name</label>
@@ -135,181 +120,105 @@
                 <div class="col-md-4">
                   <label for="customer_address" class="form-label">Address</label>
                   <input type="text" class="form-control" id="customer_address" placeholder="1234 Main St">
->>>>>>> 860dc699693e17b45bd993f9ee4af4e7b1c8ca27
+
                 </div>
-
                 <hr>
-
-<<<<<<< HEAD
                 <h2 class="text-center">ناپ</h2>
                 <hr>
                 <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputCity" class="form-label">لمبائی</label>
                   <input type="number" class="form-control" id="length">
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputCity" class="form-label">چھاتی</label>
                   <input type="number" class="form-control" id="chest">
                 </div>
                  
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputState" class="form-label">شولڈر</label>
                   <input type="number" class="form-control" id="shoulder">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputZip" class="form-label">بازو</label>
                   <input type="number" class="form-control" id="arm">
                 </div>
                 
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputCity" class="form-label">ہاف بین</label>
                   <input type="number" class="form-control" id="haff_bean">
                 </div>
-                </div>
-                <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputZip" class="form-label">ہاف بین سٹائل</label>
-                  <select id="half_bean_style" class="form-select"  >
+                  <select id="inputState" class="form-select"  >
                     <option  selected>منتخب کریں</option>
                     <option value="1">چورس</option>
                     <option vlaue="2">گول</option>
                   </select>
                 </div> 
-=======
-<h2 class="text-center">ناپ</h2>
-<hr>
-<div class="row">
-<div class="col-md-3">
-  <label for="inputCity" class="form-label">لمبائی</label>
-  <input type="number" class="form-control" id="length">
-</div>
->>>>>>> 860dc699693e17b45bd993f9ee4af4e7b1c8ca27
 
-<div class="col-md-3">
-  <label for="inputCity" class="form-label">چھاتی</label>
-  <input type="number" class="form-control" id="chest">
-</div>
- 
-<div class="col-md-3">
-  <label for="inputState" class="form-label">شولڈر</label>
-  <input type="number" class="form-control" id="shoulder">
-</div>
-<div class="col-md-3">
-  <label for="inputZip" class="form-label">بازو</label>
-  <input type="number" class="form-control" id="arm">
-</div>
+                <div class="col-md-3">
+                  <label for="inputZip" class="form-label">کمر</label>
+                  <input type="number" class="form-control" id="back">
+                </div>
+  
+                <div class="col-md-3">
+                  <label for="inputZip" class="form-label">پانچه</label>
+                  <input type="number" class="form-control" id="pouncha">
+                </div>
 
+                <div class="col-md-3">
+                  <label for="inputState" class="form-label">گھیرا</label>
+                  <input type="number" class="form-control" id="surround">
+                </div>
+                
+                <div class="col-md-3">
+                  <label for="inputState" class="form-label">شلوار</label>
+                  <input type="number" class="form-control" id="pants">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputState" class="form-label"> پٹی کی لمبائی</label>
+                  <input type="number" class="form-control" id="strip_length">
+                </div>
 
-<div class="col-md-3">
-  <label for="inputCity" class="form-label">ہاف بین</label>
-  <input type="number" class="form-control" id="haff_bean">
-</div>
-<div class="col-md-3">
-  <label for="inputZip" class="form-label">ہاف بین سٹائل</label>
-  <select id="inputState" class="form-select"  >
-    <option  selected>منتخب کریں</option>
-    <option value="1">چورس</option>
-    <option vlaue="2">گول</option>
-  </select>
-</div> 
+                
+                <div class="col-md-3">
+                  <label for="inputZip" class="form-label"> پٹی کی چوڑائی</label>
+                  <input type="number" class="form-control" id="strip_width">
+                </div>
 
-<<<<<<< HEAD
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputZip" class="form-label">موڑہ</label>
                   <input type="number" class="form-control" id="bent">
                 </div>                 
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputCity" class="form-label">بغل جيب</label>
-                  <select id="side_pocket" class="form-select">
+                  <select id="inputState" class="form-select">
                     <option  selected>منتخب کریں</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option vlaue="2">2</option>
                   </select>
                 </div>  
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputCity" class="form-label">سامنے جیب</label>
-                  <select id="front_pocket" class="form-select">
+                  <select id="inputState" class="form-select">
                     <option  selected>منتخب کریں</option>
                     <option value="0">0</option>
                     <option vlaue="1">1</option>
                   </select>
                 </div> 
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <label for="inputZip" class="form-label" >دامن</label>
-                  <select id="daman" class="form-select">
+                  <select id="inputState" class="form-select">
                     <option  selected>منتخب کریں</option>
                     <option value="1">چورس</option>
                     <option vlaue="2">گول</option>
                   </select>
                 </div>   
                 </div>
-=======
-<div class="col-md-3">
-  <label for="inputZip" class="form-label">کمر</label>
-  <input type="number" class="form-control" id="back">
-</div>
->>>>>>> 860dc699693e17b45bd993f9ee4af4e7b1c8ca27
-
-<div class="col-md-3">
-  <label for="inputZip" class="form-label">پانچه</label>
-  <input type="number" class="form-control" id="pouncha">
-</div>
-
-<div class="col-md-3">
-  <label for="inputState" class="form-label">گھیرا</label>
-  <input type="number" class="form-control" id="surround">
-</div>
-
-<div class="col-md-3">
-  <label for="inputState" class="form-label">شلوار</label>
-  <input type="number" class="form-control" id="pants">
-</div>
-<div class="col-md-3">
-  <label for="inputState" class="form-label"> پٹی کی لمبائی</label>
-  <input type="number" class="form-control" id="strip_length">
-</div>
-
-
-<div class="col-md-3">
-  <label for="inputZip" class="form-label"> پٹی کی چوڑائی</label>
-  <input type="number" class="form-control" id="strip_width">
-</div>
-
-<div class="col-md-3">
-  <label for="inputZip" class="form-label">موڑہ</label>
-  <input type="number" class="form-control" id="bent">
-</div>                 
-<div class="col-md-3">
-  <label for="inputCity" class="form-label">بغل جيب</label>
-  <select id="inputState" class="form-select">
-    <option  selected>منتخب کریں</option>
-    <option value="0">0</option>
-    <option value="1">1</option>
-    <option vlaue="2">2</option>
-  </select>
-</div>  
-<div class="col-md-3">
-  <label for="inputCity" class="form-label">سامنے جیب</label>
-  <select id="inputState" class="form-select">
-    <option  selected>منتخب کریں</option>
-    <option value="0">0</option>
-    <option vlaue="1">1</option>
-  </select>
-</div> 
-<div class="col-md-3">
-  <label for="inputZip" class="form-label" >دامن</label>
-  <select id="inputState" class="form-select">
-    <option  selected>منتخب کریں</option>
-    <option value="1">چورس</option>
-    <option vlaue="2">گول</option>
-  </select>
-</div>   
-</div>
       <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                       <button type="submit" name="btn_submit" id="btn_submit" class="btn btn-primary">Save Order</button>

@@ -3,18 +3,9 @@
           <!-- ======= Sidebar ======= -->
           <aside id="sidebar" class="sidebar">
 
-<<<<<<< HEAD
-  <li class="nav-item">
-    <a class="nav-link collapsed" >
-      <i class="bi bi-power" ></i>
-<<<<<<< HEAD
-      <span data-bs-toggle="modal" style="cursor:pointer" data-bs-target="#smallModal">Log Out</span>
-=======
-      <span data-bs-toggle="modal" data-bs-target="#mediumModal">Log Out</span>
->>>>>>> 42041ed014ced97babd764bde8102cc133812ab6
-    </a>
+   
   </li><!-- End setting Page Nav -->
-=======
+
           <ul class="sidebar-nav" id="sidebar-nav">
           <!-- Dashboard start  -->
           <li class="nav-item">
@@ -63,13 +54,6 @@
       </ul>
 
       </aside><!-- End Sidebar-->
->>>>>>> 860dc699693e17b45bd993f9ee4af4e7b1c8ca27
-
-
-                    <!-- Medium Modal -->
-
-<<<<<<< HEAD
-</aside><!-- End Sidebar-->
 
 
               <!-- Medium Modal -->
@@ -90,25 +74,8 @@
                   </div>
                 </div>
               </div><!-- End medium Modal-->
-=======
-                    <div class="modal fade" id="mediumModal" tabindex="-1">
-                      <div class="modal-dialog modal-md">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                          Are you sure to Logout..!
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger">Logout</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div><!-- End medium Modal-->
->>>>>>> 860dc699693e17b45bd993f9ee4af4e7b1c8ca27
 
+      
 
 
 

@@ -49,10 +49,7 @@
                 } else{
                   echo "<span class='badge bg-danger'>Disabled</span>";
                 } ?></td>
-                <td>
-                <a href="javascript:void(0)" data-id="<?= $row['id'] ?>"data-role_id="<?= $row['role_id'] ?>" data-name="<?= $row['name'] ?>" data-password="<?= $row['password'] ?>"data-status="<?= $row['status'] ?>"onclick="request_view_modal(this)"title="Click to View">
-
-                </td>
+               
               </tr>
               <?php } ?>
             </tbody>

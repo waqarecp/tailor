@@ -54,7 +54,7 @@
                       <button data-id="<?= $row['id'] ?>" data-name="<?= $row['name'] ?>" data-email="<?= $row['email'] ?>" data-contact="<?= $row['contact'] ?>" data-address="<?= $row['address'] ?>"  data-name="<?= $row['name'] ?>" data-status="<?= $row['status'] ?>" onclick="edit_customers(this)" title="Click to Edit Customers" type="button" class="btn btn-sm btn-info text-white">
                         <span class="bi bi-pencil"></span>
                       </button>
-                      <button class="btn btn-sm btn-primary"> Order-List</button>
+                      <button class="btn btn-sm btn-primary"  data-bs-toggle="modal" data-bs-target="#ordermodel"> New Order</button>
                    
                     </td>
                   </tr>
@@ -177,7 +177,7 @@
                   <label for="inputCity" class="form-label">بغل جيب</label>
                   <select id="inputState" class="form-select">
                     <option  selected>منتخب کریں</option>
-                    <option value="0">0</option>
+                    <option value="0">No</option>
                     <option value="1">1</option>
                     <option vlaue="2">2</option>
                   </select>
@@ -186,8 +186,9 @@
                   <label for="inputCity" class="form-label">سامنے جیب</label>
                   <select id="inputState" class="form-select">
                     <option  selected>منتخب کریں</option>
-                    <option value="0">0</option>
+                    <option value="0">No</option>
                     <option vlaue="1">1</option>
+                    <option vlaue="2">2</option>
                   </select>
                 </div> 
                 <div class="col-md-3">
@@ -212,7 +213,39 @@
             </div>
               </form><!-- End Form -->
 
+<!-- Order Modal -->
 
+
+              <div class="modal fade" id="ordermodel" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Make New Order</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                <div class="col-md-3">
+                  <label for="quantity" class="form-label">Quantity</label>
+                  <input type="number" class="form-control" id="quantity">
+                </div>
+                <div class="col-md-3">
+                  <label for="total_amount" class="form-label">Total Amount</label>
+                  <input type="number" class="form-control" id="total_amount">
+                </div>
+                <div class="col-md-3">
+                  <label for="delivery_date" class="form-label">Delivery Date</label>
+                  <input type="date" class="form-control" id="delivery_date">
+                </div>
+                  </div>
+                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Update</button>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Order Modal-->
 
 <!-- javascript -->
 

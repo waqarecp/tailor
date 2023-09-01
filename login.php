@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include 'header.php'; 
 include 'actions.php'; ?>
 <title>Login </title>
@@ -64,7 +63,7 @@ if(isset($_SESSION['id']) & !empty($_SESSION['id'])){
 
                   <form class="row g-3 needs-validation" action="" method="POST">
 
-                  <center><div><?php echo isset($msg)?$msg:''; ?></div></center>
+                  <div><?php echo isset($msg)?$msg:''; ?></div>
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
