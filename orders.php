@@ -23,19 +23,15 @@
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Customer_ID</th>
-                    <th scope="col">Measurement_ID</th>
-                    <th scope="col">Created_by</th>
-                    <th scope="col">Created_date</th> 
-                    <th scope="col">Updated_date</th>
-                    <th scope="col">Updated_by</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Measurement ID</th>
                     <th scope="col">Status</th>
                   
                   </tr>
                 </thead>
                 <tbody>
                  
-                <?php   $query = $object->select("*","orders","1"); 
+                <?php   $query = $object->select("orders.*,customers.name","orders,customers","orders.customer_id=customers.id"); 
                 
                 while ($row=$query->fetch_assoc()) {
                   
@@ -43,19 +39,15 @@
                 
                 <tr>
                     <td><?php echo $row['id'];  ?></td>
-                    <td><?php echo $row['customer_id'];  ?></td>
+                    <td><?php echo $row['name'];  ?></td>
                     <td><?php echo $row['measurement_id'];?>
-                    <td><?php echo $row['created_by'];  ?></td>
-                    <td><?php echo $row['created_date'];  ?></td>
-                    <td><?php echo $row['updated_date'];  ?></td>
-                    <td><?php echo $row['updated_by'];  ?></td>
                     <td><?php  if ($row['status']==1) {
                       echo "<span class='badge bg-primary'>Active</span>";
                     } else{
                       echo "<span class='badge bg-danger'>Disabled</span>";
                     } ?></td>
                     <td>
-                    <a href="javascript:void(0)" data-id="<?= $row['id'] ?>" data-name="<?= $row['customer_id'] ?>" data-created-date="<?= $row['measurement_id'] ?>" data-email="<?= $row['created_by'] ?>" data-contact="<?= $row['created_date'] ?>" data-address="<?= $row['updated_date'] ?>"  data-updated_by="<?= $row['updated_by'] ?>"  data-status="<?= $row['status'] ?>"   onclick="request_view_modal(this)" title="Click to View">
+                    <a href="javascript:void(0)" data-id="<?= $row['id'] ?>" data-customer_id="<?= $row['customer_id'] ?>" data-measurment_id="<?= $row['measurement_id'] ?>"       data-status="<?= $row['status'] ?>"   onclick="request_view_modal(this)" title="Click to View">
 
                     </td>
                   </tr>
