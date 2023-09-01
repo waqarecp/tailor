@@ -13,8 +13,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Customer</li>
+          <li class="breadcrumb-item active" >Customer</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -29,7 +28,7 @@
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">contact</th>
+                    <th scope="col">Contact</th>
                     <th scope="col">Address</th>
                     <th scope="col">Status</th> 
                     <th scope="col">Actions</th>
@@ -47,7 +46,7 @@
                 <tr>
                     <td><?php echo $row['id'];  ?></td>
                     <td><?php echo $row['name'];  ?></td>
-                    <td><?php echo $row['contact'];?> <br> <?php echo $row['email']; ?></td>
+                    <td><?php echo $row['contact'];?> <br><small> <?php echo $row['email']; ?></td>
                     <td><?php echo $row['address'];  ?></td>
                     <td><?php  if ($row['status']==1) {
                       echo "<span class='badge bg-primary'>Active</span>";
@@ -56,10 +55,13 @@
                     } ?></td>
                     <td>
                     <a href="javascript:void(0)" data-id="<?= $row['id'] ?>" data-name="<?= $row['name'] ?>" data-created-date="<?= $row['created_date'] ?>" data-email="<?= $row['email'] ?>" data-contact="<?= $row['contact'] ?>" data-address="<?= $row['address'] ?>"  data-name="<?= $row['name'] ?>"  data-updated_by="<?= $row['updated_by'] ?>"  data-status="<?= $row['status'] ?>"   onclick="request_view_modal(this)" title="Click to View">
-                      <span class="bi bi-eye"></span>
-                    </a>
+  <button type="button" class="btn btn-sm btn-info text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="More Information">
+  <span class="bi bi-eye"></span>
+    </button>                   </a>
 
-                    <a href="javascript:void(0)"><span class="bi bi-pencil"></span></a>  
+    <button type="button" class="btn btn-sm btn-primary text-white" data-bs-toggle="modal" data-bs-target="#editModal">
+  <span class="bi bi-pencil"></span>
+    </button>  
                     </td>
                   </tr>
                   <?php } ?>
@@ -73,67 +75,183 @@
   ?>
 
 <div class="modal fade" id="view_model" tabindex="-1">
-                <div class="modal-dialog modal-md">
+                <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                      
                     <div class="modal-body">
                       <!-- Multi Columns Form -->
              <!-- Table with stripped rows -->
-  
-                <h5 class="card-title">Profile Details</h5>
+                <hr>
 
-                 
-            
+
+                <div class="row ">
+                  <div class="col-md-6">
+                  <span class="bi bi-file-person"></span><label class="px-1">ID: </label>     <span id="view_id"></span>
+              
+                  </div>
+                  <div class="col-md-6">
+                  <span class="bi bi-person-plus-fill "></span><label class="px-1">Name: </label>   <span id="view_name"></span>
+
+                  </div>
+                </div>
+
                 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label ">ID</div>
-  <div class="col-lg-9 col-md-8"><span id="view_id"></span></div>
+                <div class="row pt-5">
+                  <div class="col-md-6">
+                  <span class="bi bi-envelope-fill "></span><label class="px-1">Email: </label>    <span id="view_email"></span>
+                  </div>
+                  <div class="col-md-6">
+                  <span class="bi bi-telephone-fill "></span><label class="px-1">Contact: </label>   <span id="view_contact"></span>
+                  </div>
+                </div>
+                 
+
+   <div class="row pt-5">
+    <div class="col-md-12">
+    <span class="bi bi-house-fill "></span><label class="px-1">Address: </label>   <span id="view_address"></span>
+
+</div>
 </div>
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">Name</div>
-  <div class="col-lg-9 col-md-8"><span id="view_name"></span></div>
-</div>
+<div class="row pt-5">
+                  <div class="col-md-6">
+                  <label >Created_by:</label><span id="view_name"></span>
+                  </div>
+                  <div class="col-md-6">
+                  <span class="bi bi-calendar-event-fill"></span><label class="px-1">Created_date: </label><span>     <span id="view_created_date"></span></span>
+                  </div>
+                </div>
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">Email</div>
-  <div class="col-lg-9 col-md-8"><span id="view_email"></span></div>
-</div>
+                <div class="row pt-5">
+                  <div class="col-md-6">
+                  <span class="bi bi-calendar-event-fill"></span><label class="px-1">updated_date: </label><span>      <span id="view_updated_date"></span></span>
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">Contact</div>
-  <div class="col-lg-9 col-md-8"><span id="view_contact"></span></div>
-</div>
+                  </div>
+                  <div class="col-md-6">
+                  <label>Status:</label>     <span id="view_status"></span>
+                  </div>
+                </div>
+                <hr>
+                <form class="row g-3">
+              
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">Address</div>
-  <div class="col-lg-9 col-md-8"><span id="view_address"></span></div>
-</div>
+            
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">Created_by</div>
-  <div class="col-lg-9 col-md-8"><span id="view_name"></span></div>
-</div>
+               <h2 class="text-center">ناپ</h2>
+                <hr>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">لمبائی</label>
+                  <input type="number" class="form-control" id="length">
+                </div>
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">Created_date</div>
-  <div class="col-lg-9 col-md-8"><span id="view_created_date"></span></div>
-</div>
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">چھاتی</label>
+                  <input type="number" class="form-control" id="chest">
+                </div>
+                 
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label">شولڈر</label>
+                  <input type="number" class="form-control" id="shoulder">
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">بازو</label>
+                  <input type="number" class="form-control" id="arm">
+                </div>
+                
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">updated_date</div>
-  <div class="col-lg-9 col-md-8"><span id="view_updated_date"></span></div>
-</div>
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">ہاف بین</label>
+                  <input type="number" class="form-control" id="haff_bean">
+                </div>
+                </div>
+               <div class="row">
+               <div class="col-md-1"></div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">ہاف بین سٹائل</label>
+                  <select id="inputState" class="form-select"  >
+                    <option  selected>منتخب کریں</option>
+                    <option value="1">چورس</option>
+                    <option vlaue="2">گول</option>
+                  </select>
+                </div> 
 
-<div class="row">
-  <div class="col-lg-3 col-md-4 label">Status</div>
-  <div class="col-lg-9 col-md-8"><span id="view_status"></span></div>
-</div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">کمر</label>
+                  <input type="number" class="form-control" id="back">
+                </div>
+  
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">پانچه</label>
+                  <input type="number" class="form-control" id="pouncha">
+                </div>
+
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label">گھیرا</label>
+                  <input type="number" class="form-control" id="surround">
+                </div>
+                
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label">شلوار</label>
+                  <input type="number" class="form-control" id="pants">
+                </div> 
+                </div>
+                <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label"> پٹی کی لمبائی</label>
+                  <input type="number" class="form-control" id="strip_length">
+                </div>
+
+                
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label"> پٹی کی چوڑائی</label>
+                  <input type="number" class="form-control" id="strip_width">
+                </div>
+
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">موڑہ</label>
+                  <input type="number" class="form-control" id="bent">
+                </div>                 
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">بغل جيب</label>
+                  <select id="inputState" class="form-select">
+                    <option  selected>منتخب کریں</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option vlaue="2">2</option>
+                  </select>
+                </div>  
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">سامنے جیب</label>
+                  <select id="inputState" class="form-select">
+                    <option  selected>منتخب کریں</option>
+                    <option value="0">0</option>
+                    <option vlaue="1">1</option>
+                  </select>
+                </div> 
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label" >دامن</label>
+                  <select id="inputState" class="form-select">
+                    <option  selected>منتخب کریں</option>
+                    <option value="1">چورس</option>
+                    <option vlaue="2">گول</option>
+                  </select>
+                </div>
               <!-- End Table with stripped rows -->
-                    </div>
+              </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      
+                  </div>
+                  </div>
+                </div>
+              </div><!-- End Large Modal-->
+            </div>
+              </form><!-- End Multi Columns Form -->
+              
                     </div>
                   </div>
                 </div>
@@ -175,7 +293,153 @@ else{
 
   </script>
 
+ <!-- Large Modal -->
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+                Large Modal
+              </button>
 
+              <div class="modal fade" id="editModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <form class="row g-3">
+                <div class="col-md-3">
+                  <label for="inputName5" class="form-label">نام</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputEmail5" class="form-label">ایمیل</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputPassword5" class="form-label">فون</label>
+                  <input type="number" class="form-control" id="contact">
+                </div>
+                <div class="col-3">
+                  <label for="inputAddress5" class="form-label">پتہ</label>
+                  <input type="text" class="form-control" id="address" placeholder="1234 Main St">
+                </div>
 
+                <hr>
 
+                <h2 class="text-center">ناپ</h2>
+                <hr>
+                <div class="row">
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">لمبائی</label>
+                  <input type="number" class="form-control" id="length">
+                </div>
 
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">چھاتی</label>
+                  <input type="number" class="form-control" id="chest">
+                </div>
+                 
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label">شولڈر</label>
+                  <input type="number" class="form-control" id="shoulder">
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">بازو</label>
+                  <input type="number" class="form-control" id="arm">
+                </div>
+                
+
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">ہاف بین</label>
+                  <input type="number" class="form-control" id="haff_bean">
+                </div>
+                </div>
+<div class="row">
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">ہاف بین سٹائل</label>
+                  <select id="inputState" class="form-select"  >
+                    <option  selected>منتخب کریں</option>
+                    <option value="1">چورس</option>
+                    <option vlaue="2">گول</option>
+                  </select>
+                </div> 
+
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">کمر</label>
+                  <input type="number" class="form-control" id="back">
+                </div>
+  
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">پانچه</label>
+                  <input type="number" class="form-control" id="pouncha">
+                </div>
+
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label">گھیرا</label>
+                  <input type="number" class="form-control" id="surround">
+                </div>
+                
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label">شلوار</label>
+                  <input type="number" class="form-control" id="pants">
+                </div> 
+                </div>
+                <div class="row">
+                <div class="col-md-2">
+                  <label for="inputState" class="form-label"> پٹی کی لمبائی</label>
+                  <input type="number" class="form-control" id="strip_length">
+                </div>
+
+                
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label"> پٹی کی چوڑائی</label>
+                  <input type="number" class="form-control" id="strip_width">
+                </div>
+
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">موڑہ</label>
+                  <input type="number" class="form-control" id="bent">
+                </div>                 
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">بغل جيب</label>
+                  <select id="inputState" class="form-select">
+                    <option  selected>منتخب کریں</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option vlaue="2">2</option>
+                  </select>
+                </div>  
+                <div class="col-md-2">
+                  <label for="inputCity" class="form-label">سامنے جیب</label>
+                  <select id="inputState" class="form-select">
+                    <option  selected>منتخب کریں</option>
+                    <option value="0">0</option>
+                    <option vlaue="1">1</option>
+                  </select>
+                </div> 
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label" >دامن</label>
+                  <select id="inputState" class="form-select">
+                    <option  selected>منتخب کریں</option>
+                    <option value="1">چورس</option>
+                    <option vlaue="2">گول</option>
+                  </select>
+                </div>   
+                </div>
+
+        
+                   
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-primary">Edit Order</button>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Large Modal-->
+            </div>
+              </form><!-- End Multi Columns Form -->
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Large Modal-->
+
+  <!-- Medium Modal -->
+
+            

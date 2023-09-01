@@ -1,3 +1,8 @@
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
  <!-- ======= Sidebar ======= -->
  <aside id="sidebar" class="sidebar">
 
@@ -18,14 +23,25 @@
   </li><!-- End customer Page Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="customer.php">
-      <i class="bi bi-book"></i>
+    <a class="nav-link collapsed" href="orders.php">
+      <i class="bi bi-cart"></i>
       <span>Orders</span>
     </a>
   </li><!-- End Orders Page Nav -->
 
+  
+  <div class="dropdown nav-item nav-link collapsed">
+   <span class="bi bi-person"></span> <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">Users
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="user.php">User</a></li>
+      <li class="divider"></li>
+      <li><a href="add-user.php">Add User</a></li>
+      
+    </ul>
+  </div>
   <li class="nav-item">
-    <a class="nav-link collapsed" href="customer.php">
+    <a class="nav-link collapsed" href="settings.php">
       <i class="bi bi-gear"></i>
       <span>Settings</span>
     </a>
@@ -34,7 +50,11 @@
   <li class="nav-item">
     <a class="nav-link collapsed" >
       <i class="bi bi-power" ></i>
+<<<<<<< HEAD
       <span data-bs-toggle="modal" style="cursor:pointer" data-bs-target="#smallModal">Log Out</span>
+=======
+      <span data-bs-toggle="modal" data-bs-target="#mediumModal">Log Out</span>
+>>>>>>> 42041ed014ced97babd764bde8102cc133812ab6
     </a>
   </li><!-- End setting Page Nav -->
 
@@ -44,10 +64,10 @@
 </aside><!-- End Sidebar-->
 
 
-              <!-- Small Modal -->
+              <!-- Medium Modal -->
 
-              <div class="modal fade" id="smallModal" tabindex="-1">
-                <div class="modal-dialog modal-sm">
+              <div class="modal fade" id="mediumModal" tabindex="-1">
+                <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -61,4 +81,11 @@
                     </div>
                   </div>
                 </div>
-              </div><!-- End Small Modal-->
+              </div><!-- End medium Modal-->
+
+
+
+
+
+
+
