@@ -34,7 +34,7 @@
   <li class="nav-item">
     <a class="nav-link collapsed" >
       <i class="bi bi-power" ></i>
-      <span data-bs-toggle="modal" data-bs-target="#smallModal">Log Out</span>
+      <span data-bs-toggle="modal" style="cursor:pointer" data-bs-target="#smallModal">Log Out</span>
     </a>
   </li><!-- End setting Page Nav -->
 
@@ -57,7 +57,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-danger">Logout</button>
+                      <a href="logout.php" class="btn btn-danger">Logout</a>
                     </div>
                   </div>
                 </div>

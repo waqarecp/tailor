@@ -1,4 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['id']) & empty($_SESSION['id'])){
+  echo "<script>setTimeout(function(){ window.location.href='logout.php'; }, 0);</script>";
+}?>
 <?php include 'header.php'; ?>
+
 </head>
 
 <body>

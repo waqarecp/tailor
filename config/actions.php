@@ -2,7 +2,7 @@
 define("server", "localhost");
 define("username", "root");
 define("password", "");
-define("database", "taylor");
+define("database", "tailor");
 error_reporting(0);
 class Actions{
 	
@@ -31,12 +31,24 @@ class Actions{
 		echo $query;
 	}
 
-	function insert($table,$array){
-		$keys=implode(",",array_keys($array));
-		$values="'".implode("','",array_values($array))."'";
-		$query="INSERT INTO ".$table." (".$keys.") VALUES (".$values.")";
-		return mysqli_query($this->connection,$query);
+	// function insert($table,$array){
+	// 	$keys=implode(",",array_keys($array));
+	// 	$values="'".implode("','",array_values($array))."'";
+	// 	$query="INSERT INTO ".$table." (".$keys.") VALUES (".$values.")";
+	// 	return mysqli_query($this->connection,$query);
+	// }
+	function insert($table, $array) {
+		$keys = implode(",", array_keys($array));
+		$values = "'" . implode("','", array_values($array)) . "'";
+		$query = "INSERT INTO " . $table . " (" . $keys . ") VALUES (" . $values . ")";
+	
+		if (mysqli_query($this->connection, $query)) {
+			return mysqli_insert_id($this->connection);
+		} else {
+			return false; // Return false if the query fails
+		}
 	}
+	
 
 	function insert_c($table,$array){
 		$keys=implode(",",array_keys($array));

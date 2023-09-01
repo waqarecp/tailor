@@ -1,4 +1,5 @@
-<?php  include'config/actions.php'; ?>
+<?php session_start();
+include 'config/actions.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

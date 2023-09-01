@@ -1,5 +1,4 @@
-<?php include 'header.php';
-?>
+<?php include 'header.php';?>
 
 <body>
 
@@ -19,7 +18,11 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+                  <?php 
+                    if (isset($_SESSION['msg'])) {
+                      echo $_SESSION['msg'];unset($_SESSION['msg']);
+                    }
+                  ?>
    <!-- Table with stripped rows -->
    <table class="table datatable">
                 <thead>
@@ -35,7 +38,7 @@
                 </thead>
                 <tbody>
                  
-                <?php   $query = $object->select("*","customers","1"); 
+                <?php   $query = $object->select("*","customers","1 ORDER BY customers.id DESC"); 
                 
                 while ($row=$query->fetch_assoc()) {
                   
@@ -138,6 +141,7 @@
               
 
               <script>
+
   function request_view_modal(element) {
     // Get the data attributes
     var id = $(element).attr("data-id");
