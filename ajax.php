@@ -33,9 +33,8 @@ if (isset($_POST['btn_submit']) ){
             'address' =>$_POST['address'],
             'created_by' =>$_SESSION['id']
     );    
-    $insert=$object->insert('customers',$array);
-    
-        if ($insert) {
+    $inserted_id=$object->insert('customers',$array);
+        if ($inserted_id) {
             $array=array(
                 'lenght' =>$_POST['lenght'],
                 'chest' =>$_POST['chest'],
@@ -46,23 +45,22 @@ if (isset($_POST['btn_submit']) ){
                 'bent' =>$_POST['bent'],
                 'back' =>$_POST['back'],
                 'pouncha' =>$_POST['pouncha'],
-                'sorround' =>$_POST['sorround'],
+                'surround' =>$_POST['sorround'],
                 'pants' =>$_POST['pants'],
                 'strip_lenght' =>$_POST['strip_lenght'],
                 'strip_width' =>$_POST['strip_width'],
                 'side_pocket' =>$_POST['side_pocket'],
                 'front_pocket' =>$_POST['front_pocket'],
                 'daman' =>$_POST['daman'],
-                'customer_id' =>$insert,
+                'customer_id' =>$inserted_id,
                 'created_by' =>$_SESSION['id'],
                 
             );
-            $insert_measurement=$object->insert("measurements",$array);
+            $object->insert("measurements",$array);
             $_SESSION['msg']="<div class='alert alert-success alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Customer added successfully.</h4></div>";
-            header('Location:customer.php');
         } else {
             $_SESSION['msg']= "<div class='alert alert-danger alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Faild to add customer.</h4></div>";
-            header('Location:customer.php');  
         }
+    header('Location:customer.php');
 } 
 ?>

@@ -31,19 +31,15 @@ class Actions{
 		echo $query;
 	}
 
-	// function insert($table,$array){
-	// 	$keys=implode(",",array_keys($array));
-	// 	$values="'".implode("','",array_values($array))."'";
-	// 	$query="INSERT INTO ".$table." (".$keys.") VALUES (".$values.")";
-	// 	return mysqli_query($this->connection,$query);
-	// }
 	function insert($table, $array) {
 		$keys = implode(",", array_keys($array));
 		$values = "'" . implode("','", array_values($array)) . "'";
 		$query = "INSERT INTO " . $table . " (" . $keys . ") VALUES (" . $values . ")";
 	
-		if (mysqli_query($this->connection, $query)) {
-			return mysqli_insert_id($this->connection);
+		$this->connection->query($query);
+		$inserted_id = $this->connection->insert_id;
+		if ($inserted_id) {
+			return $inserted_id;
 		} else {
 			return false; // Return false if the query fails
 		}

@@ -21,6 +21,7 @@
 <!-- Table with stripped rows -->
 <table class="table datatable">
                 <thead>
+  
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>

@@ -1,11 +1,10 @@
 <?php 
-session_start();
 include 'header.php'; 
 include 'actions.php'; ?>
 <title>Login </title>
 <?php 
 if(isset($_SESSION['id']) & !empty($_SESSION['id'])){
-  echo "<script>setTimeout(function(){ window.location.href='index.php'; }, 0);</script>";
+  echo "<script>setTimeout(function(){ window.location.href='index.php'; }, 5000);</script>";
 }
      if (isset($_POST['btn_login'])) {
      

@@ -1,0 +1,1 @@
+ALTER TABLE `customers` CHANGE `contact` `contact` VARCHAR(15) NULL DEFAULT NULL;
