@@ -52,11 +52,6 @@
       </aside><!-- End Sidebar-->
 
 
-                    <!-- Medium Modal -->
-
-</aside><!-- End Sidebar-->
-
-
               <!-- Medium Modal -->
 
               <div class="modal fade" id="mediumModal" tabindex="-1">
