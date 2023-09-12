@@ -12,7 +12,7 @@ if(isset($_SESSION['id']) & !empty($_SESSION['id'])){
           $password=$_POST['password'];
   
           if(!empty($email) && !empty($password)){
-              $result=$object->select("*","admin","email='".$email."' AND password='".$password."'");
+              $result=$object->select("admin.*,admin.role_id as role,roles.*","admin,roles","email='".$email."' AND password='".$password."' AND admin.role_id=roles.id");
           
               $row=$result->fetch_assoc();
             
@@ -21,6 +21,7 @@ if(isset($_SESSION['id']) & !empty($_SESSION['id'])){
                 if($row['status']==1){
                   $_SESSION['id']=$row['id'];
                   $_SESSION['name']=$row['name'];
+                  $_SESSION['role']=$row['role'];
                   $msg="<div class='alert alert-success alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Welcome to Admin Panel.</h4></div>";
                   echo "<script>setTimeout(function(){ window.location.href='index.php'; }, 2000);</script>";
                 }else{

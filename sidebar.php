@@ -1,7 +1,7 @@
       
       
           <!-- ======= Sidebar ======= -->
-          <aside id="sidebar" class="sidebar">
+          <aside id="sidebar" class="sidebar noprint">
         <ul class="sidebar-nav" id="sidebar-nav">
           <!-- Dashboard start  -->
           <li class="nav-item">
@@ -12,7 +12,7 @@
     </li><!-- End Dashboard Nav -->
           <!-- customers start  -->
             <li class="nav-item">
-              <a class="nav-link collapsed" href="customer.php">
+              <a class="nav-link collapsed" href="customers.php">
                 <i class="bi bi-person"></i>
                 <span>Customers</span>
               </a>
@@ -26,20 +26,20 @@
             </li><!-- End Orders Page Nav -->
 
         <!-- start Orders  -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link collapsed" href="users.php">
             <i class="bi bi-person"></i>
             <span>Users</span>
           </a>
-        </li><!-- End Orders Page Nav -->
+        </li>End Orders Page Nav -->
 
         <!-- Start Setting  -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link collapsed" href="settings.php">
             <i class="bi bi-gear"></i>
             <span>Settings</span>
           </a>
-        </li><!-- End setting Page Nav -->
+        </li>End setting Page Nav -->
 
         <li class="nav-item">
           <a class="nav-link collapsed" >

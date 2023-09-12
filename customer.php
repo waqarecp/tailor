@@ -346,12 +346,12 @@
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
               <button type="submit" name="btn_edit_customer" id="btn_edit_customer" class="btn btn-primary">Save Order</button>
             </div>
+          </form>
         </div>
       </div>
     </div>
-    <!-- End edit customer Modal-->
   </div>
-  </form>
+  <!-- End edit customer Modal-->
 
 
 
