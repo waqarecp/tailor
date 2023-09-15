@@ -1,54 +1,65 @@
 <style type="text/css">
-    @media print {
-    .width_90{width: 100% important;}
-        .noprint { 
-            visibility: hidden;
-            display: none!important;
-        }
-        input{
-            border: none !important;
-        }
-        .show_in_print{display: block!important;
-        
-        } .modal.fade.in {
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    z-index: 1050 !important;
-    overflow: hidden !important;
-  }
-
-  .modal-dialog {
-    width: 90% !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
-
-  .modal-content {
-    border: 0 !important;
-    box-shadow: none !important;
-  }
-
-  .modal-body {
-    
-    max-height: 100% !important;
-    overflow: auto !important;
-  }
-  .a{
-    margin-left:350px;
-  }
-  .b{
-    margin-left:50px;
-  }
-  .modal-header,
-  .modal-footer {
-    display: none !important;
-  }
+  @media print {
+    .width_90 {
+      width: 100% important;
     }
-  </style>
+
+    .noprint {
+      visibility: hidden;
+      display: none !important;
+    }
+
+    input {
+      border: none !important;
+    }
+
+    .show_in_print {
+      display: block !important;
+
+    }
+
+    .modal.fade.in {
+      display: block !important;
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      z-index: 1050 !important;
+      overflow: hidden !important;
+    }
+
+    .modal-dialog {
+      width: 90% !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+
+    .modal-content {
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .modal-body {
+
+      max-height: 100% !important;
+      overflow: auto !important;
+    }
+
+    .a {
+      margin-left: 350px;
+    }
+
+    .b {
+      margin-left: 50px;
+    }
+
+    .modal-header,
+    .modal-footer {
+      display: none !important;
+    }
+  }
+</style>
 <?php include 'header.php';
 ?>
 
@@ -116,33 +127,7 @@
                   echo "<span class='badge bg-success'>Paid</span>";
                 } ?></td>
             <td>
-              <button
-               data-o_id="<?= $row['o_id'] ?>" 
-               data-amount_status="<?= $row['amount_status'] ?>" 
-               data-detail="<?= $row['detail'] ?>" 
-               data-total_amount="<?= $row['total_amount'] ?>" 
-               data-name="<?= $row['name'] ?>" 
-               data-email="<?= $row['email'] ?>" 
-               data-contact="<?= $row['contact'] ?>" 
-               data-address="<?= $row['address'] ?>" 
-               data-status="<?= $row['o_status'] ?>" 
-               data-lenght="<?= $row['lenght'] ?>" 
-               data-shoulder="<?= $row['shoulder'] ?>" 
-               data-arm="<?= $row['arm'] ?>" 
-               data-chest="<?= $row['chest'] ?>" 
-               data-back="<?= $row['back'] ?>" 
-               data-bent="<?= $row['bent'] ?>" 
-               data-surround="<?= $row['surround'] ?>" 
-               data-pants="<?= $row['pants'] ?>" 
-               data-pouncha="<?= $row['pouncha'] ?>" 
-               data-strip_lenght="<?= $row['strip_lenght'] ?>" 
-               data-strip_width="<?= $row['strip_width'] ?>" 
-               data-daman="<?= $row['daman'] ?>" 
-               data-front_pocket="<?= $row['front_pocket'] ?>" 
-               data-side_pocket="<?= $row['side_pocket'] ?>" 
-               data-half_bean="<?= $row['half_bean'] ?>" 
-               data-half_bean_style="<?= $row['half_bean_style'] ?>" 
-                 onclick="update_customer_modal(this)" title="Click to Update Order" type="button" class="btn btn-sm btn-info text-white">
+              <button data-o_id="<?= $row['o_id'] ?>" data-amount_status="<?= $row['amount_status'] ?>" data-detail="<?= $row['detail'] ?>" data-total_amount="<?= $row['total_amount'] ?>" data-name="<?= $row['name'] ?>" data-email="<?= $row['email'] ?>" data-contact="<?= $row['contact'] ?>" data-address="<?= $row['address'] ?>" data-status="<?= $row['o_status'] ?>" data-lenght="<?= $row['lenght'] ?>" data-shoulder="<?= $row['shoulder'] ?>" data-arm="<?= $row['arm'] ?>" data-chest="<?= $row['chest'] ?>" data-back="<?= $row['back'] ?>" data-bent="<?= $row['bent'] ?>" data-surround="<?= $row['surround'] ?>" data-pants="<?= $row['pants'] ?>" data-pouncha="<?= $row['pouncha'] ?>" data-strip_lenght="<?= $row['strip_lenght'] ?>" data-strip_width="<?= $row['strip_width'] ?>" data-daman="<?= $row['daman'] ?>" data-front_pocket="<?= $row['front_pocket'] ?>" data-side_pocket="<?= $row['side_pocket'] ?>" data-half_bean="<?= $row['half_bean'] ?>" data-half_bean_style="<?= $row['half_bean_style'] ?>" onclick="update_customer_modal(this)" title="Click to Update Order" type="button" class="btn btn-sm btn-info text-white">
                 <span class="bi bi-eye"> View</span>
               </button>
             </td>
@@ -156,7 +141,7 @@
 
 
   <div class="modal fade " id="ordersModel" tabindex="-1">
-    <div class="modal-dialog modal-lg width_90" >
+    <div class="modal-dialog modal-lg width_90">
       <div class="modal-content ">
         <form method="POST" action="ajax.php">
           <input type="hidden" class="form-control" id="o_id" name="o_id" required>
@@ -182,9 +167,9 @@
               </div>
               <div class="col-md-3 noprint" style="margin-top:35px">
                 <button type="submit" data-o-id="<?= $row['o_id'] ?>" class="btn btn-primary btn-sm" name="btn_update_order" id="btn_update_order">Update</button>
-                <button type="button" onclick="window.print();" class="btn btn-success "style="margin-left:30px" >Print</button>
+                <button type="button" onclick="window.print();" class="btn btn-success " style="margin-left:30px">Print</button>
               </div>
-         
+
               <div class="row mt-4">
                 <hr>
                 <div class="col-md-4">
@@ -201,7 +186,7 @@
                 <h2 class="text-center" style="margin-top:35px">ناپ</h2>
                 <hr>
                 <div class="col-md-3 a">
-                  <label for="order_length" class="form-label">لمبائی : <b  id="order_lenght"></b></label>
+                  <label for="order_length" class="form-label">لمبائی : <b id="order_lenght"></b></label>
                 </div>
                 <div class="col-md-3 b">
                   <label for="order_chest" class="form-label">چھاتی : <b id="order_chest"></b></label>
@@ -216,8 +201,11 @@
                   <label for="order_half_bean" class="form-label">ہاف بین : <b id="order_half_bean"></b></label>
                 </div>
                 <div class="col-md-3 b">
-                  <label for="order_half_bean_style" class="form-label">ہاف بین سٹائل : <b id="order_half_bean_style"></b></label>
-                   
+                  <label for="order_half_bean_style" class="form-label">ہاف بین سٹائل :</label>
+                  <select id="order_half_bean_style" class="form-select" name="order_half_bean_style" required>
+                    <option value="1">چورس</option>
+                    <option vlaue="2">گول</option>
+                  </select>
                 </div>
                 <div class="col-md-3 a">
                   <label for="order_back" class="form-label">کمر : <b id="order_back"></b></label>
@@ -243,23 +231,28 @@
                 </div>
                 <div class="col-md-3 b">
                   <label for="order_side_pocket" class="form-label">بغل جيب : <b id="order_side_pocket"></b></label>
-             
+
                 </div>
                 <div class="col-md-3 a">
                   <label for="order_front_pocket" class="form-label">سامنے جیب : <b id="order_front_pocket"></b></label>
                 </div>
                 <div class="col-md-3 b">
-                  <label for="order_daman" class="form-label">دامن : <b id="order_daman"></b></label>
-                </div> 
-                
-              </div><div class="col-md-12  noprint">
-                  <label for="order_detail" class="form-label">Details :<b id="order_detail"></b></label>
+                  <label for="order_daman" class="form-label">دامن : </label>
+                  <select id="order_daman" class="form-select" name="order_daman" required>
+                    <option value="1">چورس</option>
+                    <option vlaue="2">گول</option>
+                  </select>
                 </div>
+
+              </div>
+              <div class="col-md-12  noprint">
+                <label for="order_detail" class="form-label">Details :<b id="order_detail"></b></label>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary noprint" data-bs-dismiss="modal">Cancel</button>
-         </div>
+          </div>
         </form>
       </div>
     </div>
@@ -288,6 +281,8 @@
       $("#o_status").find("option[value='" + status + "']").prop("selected", true);
       $("#amount_status").find("option[value='" + amount_status + "']").prop("selected", true);
       // Populate the measurement fields
+      $("#order_half_bean_style").find("option[value='" + half_bean_style + "']").prop("selected", true);
+      $("#order_daman").find("option[value='" + daman + "']").prop("selected", true);
       $("#order_lenght").text($(element).attr("data-lenght"));
       $("#order_chest").text($(element).attr("data-chest"));
       $("#order_shoulder").text($(element).attr("data-shoulder"));
@@ -299,36 +294,34 @@
       $("#order_strip_width").text($(element).attr("data-strip_width"));
       $("#order_front_pocket").text($(element).attr("data-front_pocket"));
       $("#order_side_pocket").text($(element).attr("data-side_pocket"));
-      $("#order_daman").text($(element).attr("data-daman"));
       $("#order_pants").text($(element).attr("data-pants"));
       $("#order_pouncha").text($(element).attr("data-pouncha"));
       $("#order_half_bean").text($(element).attr("data-half_bean"));
       $("#order_detail").text($(element).attr("data-detail"));
-      $("#order_half_bean_style").find("option[value='" + order_half_bean_style + "']").prop("selected", true).text($(element).attr("data-half_bean_style"));
       // Show the modal
       $('#ordersModel').modal('show');
     }
+
     function printModalContent() {
-  // Clone the modal content
-  var modalContent = document.querySelector('.modal-content').cloneNode(true);
+      // Clone the modal content
+      var modalContent = document.querySelector('.modal-content').cloneNode(true);
 
-  // Create a new window or tab
-  var printWindow = window.open('', '', 'width=600,height=600');
+      // Create a new window or tab
+      var printWindow = window.open('', '', 'width=600,height=600');
 
-  // Write the modal content to the new window
-  printWindow.document.write('<html><head><title>Print</title></head><body>');
-  printWindow.document.write(modalContent.outerHTML);
-  printWindow.document.write('</body></html>');
+      // Write the modal content to the new window
+      printWindow.document.write('<html><head><title>Print</title></head><body>');
+      printWindow.document.write(modalContent.outerHTML);
+      printWindow.document.write('</body></html>');
 
-  // Close the document and trigger print
-  printWindow.document.close();
-  printWindow.print();
-  printWindow.close();
-}
+      // Close the document and trigger print
+      printWindow.document.close();
+      printWindow.print();
+      printWindow.close();
+    }
 
-// Trigger the printModalContent function when the "Print" button is clicked
-document.getElementById('btn_print').addEventListener('click', function() {
-  printModalContent();
-});
-
+    // Trigger the printModalContent function when the "Print" button is clicked
+    document.getElementById('btn_print').addEventListener('click', function() {
+      printModalContent();
+    });
   </script>
