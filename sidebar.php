@@ -42,7 +42,7 @@
         </li>End setting Page Nav -->
 
         <li class="nav-item">
-          <a class="nav-link collapsed" >
+          <a class="nav-link collapsed" href="javascript:void(0)">
             <i class="bi bi-power" ></i>
             <span data-bs-toggle="modal" data-bs-target="#mediumModal">Log Out</span>
           </a>

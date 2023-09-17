@@ -4,7 +4,7 @@
   <div class="d-flex align-items-center justify-content-between">
     <a href="index.php" class="logo d-flex align-items-center">
       <img src="assets/img/logo.png" alt="">
-      <span class="d-none d-lg-block">NiceAdmin </span>
+      <span class="d-none d-lg-block">Tailor </span>
     </a>
     <i class="bi bi-list toggle-sidebar-btn"></i>
   </div><!-- End Logo -->
@@ -13,7 +13,7 @@
     <ul class="d-flex align-items-center">
 
       <li class="nav-item d-block d-lg-none">
-        <a class="nav-link nav-icon search-bar-toggle" href="#">
+        <a class="nav-link nav-icon search-bar-toggle" href="javascript:void(0)">
           <i class="bi bi-search"></i>
         </a>
       </li><!-- End Search Icon-->

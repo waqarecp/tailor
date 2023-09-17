@@ -57,9 +57,9 @@ if (isset($_POST['btn_submit'])) {
 
         );
         $object->insert("measurements", $array);
-        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Customer added successfully.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'></a><h4>Customer added successfully.</h4></div>";
     } else {
-        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Faild to add customer.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'></a><h4>Faild to add customer.</h4></div>";
     }
     header('Location:customers.php');
 }
@@ -123,9 +123,9 @@ if (isset($_POST['btn_edit_customer'])) {
 
         ); 
         $object->update('measurements', $array,"measurements.customer_id=$id");
-        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Record updated successfully.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'></a><h4>Record updated successfully.</h4></div>";
     } else {
-        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Faild to update record.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'></a><h4>Faild to update record.</h4></div>";
     }
     header('Location:customers.php');
 }
@@ -141,9 +141,9 @@ if (isset($_POST['btn_new_order'])) {
     );
     $insert = $object->insert('orders', $array);
     if ($insert) {
-        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Order added successfully.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'></a><h4>Order added successfully.</h4></div>";
     } else {
-        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Faild to add order.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'></a><h4>Faild to add order.</h4></div>";
     }
     header('Location:orders.php');
 }
@@ -161,9 +161,9 @@ if (isset($_POST['btn_update_order'])) {
     $update= $object->update('orders', $array,"orders.id=$id");
  
     if ($update) {
-        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Order updated successfully.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-success alert-dismissible'></a><h4>Order updated successfully.</h4></div>";
     } else {
-        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'><a href='javascript:void(0)' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4>Faild to update order.</h4></div>";
+        $_SESSION['msg'] = "<div class='alert alert-danger alert-dismissible'></a><h4>Faild to update order.</h4></div>";
     }
 
     header('Location:orders.php');

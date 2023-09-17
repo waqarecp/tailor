@@ -1,7 +1,26 @@
+<?php include 'header.php';
+?>
 <style type="text/css">
   @media print {
-    .width_90 {
-      width: 100% important;
+    /* Styles for print page */
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    .table-key {
+      width: 25%;
+    }
+
+    .table-value {
+      width: 25%;
     }
 
     .noprint {
@@ -13,63 +32,57 @@
       border: none !important;
     }
 
-    .show_in_print {
+    select {
+      border: none !important;
+      -webkit-appearance: none !important;
+      /* Remove arrow in Chrome/Safari/Edge */
+      appearance: none !important;
+      margin-bottom: 13%;
+    }
+
+    /* Additional print styles specific to your layout */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .col-md-3 {
+      width: 25%;
+    }
+
+    .border {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    .d-flex {
+      display: flex;
+      justify-content: end;
+    }
+
+    .table-key,
+    .table-value {
+      width: 25%;
+    }
+
+    .table-key,
+    .table-value {
+      width: auto;
+      border: none;
+    }
+
+    .d-none {
       display: block !important;
-
-    }
-
-    .modal.fade.in {
-      display: block !important;
-      position: absolute !important;
-      top: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      z-index: 1050 !important;
-      overflow: hidden !important;
-    }
-
-    .modal-dialog {
-      width: 90% !important;
-      max-width: none !important;
-      margin: 0 !important;
-    }
-
-    .modal-content {
-      border: 0 !important;
-      box-shadow: none !important;
-    }
-
-    .modal-body {
-
-      max-height: 100% !important;
-      overflow: auto !important;
-    }
-
-    .a {
-      margin-left: 350px;
-    }
-
-    .b {
-      margin-left: 50px;
-    }
-
-    .modal-header,
-    .modal-footer {
-      display: none !important;
+      /* Override display to show it when printing */
     }
   }
 </style>
-<?php include 'header.php';
-?>
 
 <body>
   <?php include 'navbar.php';
   ?>
   <?php include 'sidebar.php';
   ?>
-
-
   <main id="main" class="main noprint">
 
     <div class="pagetitle">
@@ -138,8 +151,6 @@
     </table>
     <!-- End Table with stripped rows -->
   </main><!-- End #main -->
-
-
   <div class="modal fade " id="ordersModel" tabindex="-1">
     <div class="modal-dialog modal-lg width_90">
       <div class="modal-content ">
@@ -154,9 +165,12 @@
                   <option value="2">Completed</option>
                 </select>
               </div>
-              <div class="col-md-3  ">
-                <label for="total_amount" class="form-label">Total Amount</label>
-                <input type="text" id="total_amount" class="form-control" name="total_amount" required>
+              <div class="col-md-3  d-none">
+                <label for="total_amount" class="form-label ">Total Amount:</label>
+              </div>
+              <div class="col-md-3 ">
+                <label for="total_amount" class="form-label noprint">Total Amount</label>
+                <input type="text" id="total_amount" class="form-control amount" name="total_amount" required>
               </div>
               <div class="col-md-3 noprint">
                 <label for="amount_status" class="form-label">Payment Status</label>
@@ -165,88 +179,109 @@
                   <option value="2">Paid</option>
                 </select>
               </div>
-              <div class="col-md-3 noprint" style="margin-top:35px">
+              <div class="col-md-3 noprint mt-4">
                 <button type="submit" data-o-id="<?= $row['o_id'] ?>" class="btn btn-primary btn-sm" name="btn_update_order" id="btn_update_order">Update</button>
                 <button type="button" onclick="window.print();" class="btn btn-success " style="margin-left:30px">Print</button>
               </div>
-
               <div class="row mt-4">
                 <hr>
-                <div class="col-md-4">
-                  <label for="order_customer_name" class="form-label noprint">Name : </label><b class="o_name " id="order_customer_name"></b>
-                </div>
-                <div class="col-md-4">
-                  <label for="order_customer_contact" class="form-label noprint">Phone No : </label><b class="o_contact col-sm-offset-3" id="order_customer_contact"></b>
-                </div>
-                <div class="col-md-4">
-                  <label for="order_customer_address" class="form-label noprint">Address : </label><b class="o_address" id="order_customer_address"></b>
-                </div>
+                <table class="table ">
+                  <tr>
+                    <td class="table-cell">Name :</td>
+                    <td class="table-cell"><b class="o_name" id="order_customer_name"></b></td>
+                    <td class="table-cell">Phone No :</td>
+                    <td class="table-cell"><b class="o_contact" id="order_customer_contact"></b></td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell">Address :</td>
+                    <td class="table-cell-break" colspan="3"><b class="o_address" id="order_customer_address"></b></td>
+                  </tr>
+                </table>
               </div>
               <div class="row">
-                <h2 class="text-center" style="margin-top:35px">ناپ</h2>
+                <h2 class="text-center">ناپ</h2>
                 <hr>
-                <div class="col-md-3 a">
-                  <label for="order_length" class="form-label">لمبائی : <b id="order_lenght"></b></label>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_lenght"></p>
+                  <label for="order_length" class="form-label table-key"> : لمبائی</label>
                 </div>
-                <div class="col-md-3 b">
-                  <label for="order_chest" class="form-label">چھاتی : <b id="order_chest"></b></label>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_chest"></p>
+                  <label for="order_chest" class="form-label table-key"> : چھاتی</label>
                 </div>
-                <div class="col-md-3 a">
-                  <label for="order_shoulder" class="form-label">شولڈر : <b id="order_shoulder"></b></label>
+
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_shoulder"></p>
+                  <label for="order_shoulder" class="form-label table-key"> : شولڈر</label>
                 </div>
-                <div class="col-md-3 b">
-                  <label for="order_arm" class="form-label">بازو : <b id="order_arm"></b></label>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_arm"></p>
+                  <label for="order_arm" class="form-label table-key"> : بازو</label>
                 </div>
-                <div class="col-md-3 a">
-                  <label for="order_half_bean" class="form-label">ہاف بین : <b id="order_half_bean"></b></label>
+
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_half_bean"></p>
+                  <label for="order_half_bean" class="form-label table-key"> : ہاف بین</label>
                 </div>
-                <div class="col-md-3 b">
-                  <label for="order_half_bean_style" class="form-label">ہاف بین سٹائل :</label>
-                  <select id="order_half_bean_style" class="form-select" name="order_half_bean_style" required>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <select class="table-value" id="order_half_bean_style" name="order_half_bean_style" required>
                     <option value="1">چورس</option>
                     <option vlaue="2">گول</option>
                   </select>
-                </div>
-                <div class="col-md-3 a">
-                  <label for="order_back" class="form-label">کمر : <b id="order_back"></b></label>
-                </div>
-                <div class="col-md-3 b">
-                  <label for="order_pouncha" class="form-label">پانچه : <b id="order_pouncha"></b></label>
-                </div>
-                <div class="col-md-3 a">
-                  <label for="order_surround" class="form-label">گھیرا : <b id="order_surround"></b></label>
-                </div>
-                <div class="col-md-3 b">
-                  <label for="order_pants" class="form-label">شلوار : <b id="order_pants"></b></label>
-                </div>
-                <div class="col-md-3 a">
-                  <label for="order_strip_lenght" class="form-label"> پٹی کی لمبائی : <b id="order_strip_length"></b></label>
-                </div>
-                <div class="col-md-3 b">
-                  <label for="order_strip_width" class="form-label"> پٹی کی چوڑائی : <b id="order_strip_width"></b></label>
+                  <label for="order_half_bean_style" class="form-label table-key"> : ہاف بین سٹائل</label>
                 </div>
 
-                <div class="col-md-3 a">
-                  <label for="order_bent" class="form-label">موڑہ : <b id="order_bent"></b></label>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_back"></p>
+                  <label for="order_back" class="form-label table-key"> : کمر</label>
                 </div>
-                <div class="col-md-3 b">
-                  <label for="order_side_pocket" class="form-label">بغل جيب : <b id="order_side_pocket"></b></label>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_pouncha"></p>
+                  <label for="order_pouncha" class="form-label table-key"> : پانچه</label>
+                </div>
 
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_surround"></p>
+                  <label for="order_surround" class="form-label table-key"> : گھیرا</label>
                 </div>
-                <div class="col-md-3 a">
-                  <label for="order_front_pocket" class="form-label">سامنے جیب : <b id="order_front_pocket"></b></label>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_pants"></p>
+                  <label for="order_pants" class="form-label table-key"> : شلوار </label>
                 </div>
-                <div class="col-md-3 b">
-                  <label for="order_daman" class="form-label">دامن : </label>
-                  <select id="order_daman" class="form-select" name="order_daman" required>
+
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_strip_length"></p>
+                  <label for="order_strip_lenght" class="form-label table-key"> : پٹی کی لمبائی</label>
+                </div>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_strip_width"></p>
+                  <label for="order_strip_width" class="form-label table-key"> : پٹی کی چوڑائی</label>
+                </div>
+
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_bent"></p>
+                  <label for="order_bent" class="form-label table-key"> : موڑہ</label>
+                </div>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_side_pocket"></p>
+                  <label for="order_side_pocket" class="form-label table-key"> : بغل جيب </label>
+                </div>
+
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <p class="table-value" id="order_front_pocket"></p>
+                  <label for="order_front_pocket" class="form-label table-key"> : سامنے جیب</label>
+                </div>
+                <div class="col-md-3 border d-flex justify-content-end">
+                  <select class="table-value" id="order_daman" name="order_daman" required>
                     <option value="1">چورس</option>
                     <option vlaue="2">گول</option>
                   </select>
+                  <label for="order_daman" class="form-label table-key"> : دامن</label>
                 </div>
-
-              </div>
-              <div class="col-md-12  noprint">
-                <label for="order_detail" class="form-label">Details :<b id="order_detail"></b></label>
+              </div><br><br>
+              <div class="col-md-12 border  noprint">
+                <label for="order_detail" class="form-label table-key d-flex justify-content-end"> : تفصیل</label>
+                <p class="table-value" id="order_detail"></p>
               </div>
             </div>
           </div>
@@ -302,26 +337,53 @@
       $('#ordersModel').modal('show');
     }
 
-    function printModalContent() {
-      // Clone the modal content
-      var modalContent = document.querySelector('.modal-content').cloneNode(true);
+    // function printModalContent() {
+    //   // Clone the modal content
+    //   var modalContent = document.querySelector('.modal-content').cloneNode(true);
 
+    //   // Create a new window or tab
+    //   var printWindow = window.open('', '', 'width=600,height=600');
+
+    //   // Write the modal content to the new window
+    //   printWindow.document.write('<html><head><title>Print</title></head><body>');
+    //   printWindow.document.write(modalContent.outerHTML);
+    //   printWindow.document.write('</body></html>');
+
+    //   // Close the document and trigger print
+    //   printWindow.document.close();
+    //   printWindow.print();
+    //   printWindow.close();
+    // }
+
+    // // Trigger the printModalContent function when the "Print" button is clicked
+    // document.getElementById('btn_print').addEventListener('click', function() {
+    //   printModalContent();
+    // });
+
+    function printModalContent() {
       // Create a new window or tab
       var printWindow = window.open('', '', 'width=600,height=600');
 
       // Write the modal content to the new window
       printWindow.document.write('<html><head><title>Print</title></head><body>');
-      printWindow.document.write(modalContent.outerHTML);
+      printWindow.document.write('<div class="modal-content">');
+      // Populate modal content here
+      printWindow.document.write('</div>');
       printWindow.document.write('</body></html>');
 
-      // Close the document and trigger print
+      // Close the document after printing
       printWindow.document.close();
-      printWindow.print();
-      printWindow.close();
+
+      // Use setTimeout to allow time for the print window to open
+      setTimeout(function() {
+        printWindow.print();
+        printWindow.close();
+      }, 500); // Adjust the delay if needed
     }
 
     // Trigger the printModalContent function when the "Print" button is clicked
     document.getElementById('btn_print').addEventListener('click', function() {
+      update_customer_modal(this);
       printModalContent();
     });
   </script>
